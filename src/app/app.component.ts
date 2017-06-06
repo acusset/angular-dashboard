@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from "@angular/core";
+import * as moment from 'moment/moment';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'Dashboard';
+  ngAfterViewInit() {
+    let clock = document.getElementById('date-and-time');
+    window.setInterval(() => {
+      clock.innerHTML = moment().locale('fr').format('LLLL:ss');
+    }, 1000);
+  }
 }
