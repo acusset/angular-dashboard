@@ -1,13 +1,14 @@
-import {BrowserModule} from "@angular/platform-browser";
-import {NgModule} from "@angular/core";
-import {FormsModule} from "@angular/forms";
-import {HttpModule} from "@angular/http";
+import {BrowserModule} from '@angular/platform-browser';
+import {LOCALE_ID, NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
 
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MdCardModule, MdGridListModule, MdToolbarModule} from "@angular/material";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MdCardModule, MdChipsModule, MdGridListModule, MdProgressBarModule, MdToolbarModule} from '@angular/material';
 
-import {AppComponent} from "./app.component";
-import { NewsComponent } from './news/news.component';
+import {AppComponent} from './app.component';
+import {NewsComponent} from './news/news.component';
+import {TechCrunchService} from './news/services/techcrunch.service';
 
 @NgModule({
   declarations: [
@@ -21,9 +22,13 @@ import { NewsComponent } from './news/news.component';
     BrowserAnimationsModule,
     MdGridListModule,
     MdCardModule,
-    MdToolbarModule
+    MdToolbarModule,
+    MdChipsModule,
+    MdProgressBarModule
   ],
-  providers: [],
+  providers: [TechCrunchService,
+    {provide: LOCALE_ID, useValue: 'fr-FR'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

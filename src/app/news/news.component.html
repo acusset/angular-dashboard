@@ -1,0 +1,22 @@
+<md-card *ngIf="article" [style.minHeight]="'100%'" [style.maxHeight]="'100%'">
+  <md-card-title-group>
+    <md-card-title>{{ article.title }}</md-card-title>
+    <md-card-subtitle>By {{ article.author }}, {{ article.publishedAt | date:'mediumDate' }}</md-card-subtitle>
+    <img md-card-avatar src="{{ article.urlToImage }}">
+  </md-card-title-group>
+  <md-card-content>
+    <p>{{ article.description }}</p>
+  </md-card-content>
+  <md-card-actions>
+    <md-chip-list>
+      <md-chip color="{{ color }}" selected="true">{{ source }}</md-chip>
+    </md-chip-list>
+  </md-card-actions>
+  <md-card-footer>
+    <md-progress-bar
+      [color]="color"
+      [mode]="'determinate'"
+      [value]="value">
+    </md-progress-bar>
+  </md-card-footer>
+</md-card>
