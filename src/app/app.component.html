@@ -1,30 +1,29 @@
 <md-toolbar color="primary">
   <span id="date-and-time"></span>
 </md-toolbar>
-
-<md-grid-list cols="4" gutterSize="5">
-  <md-grid-tile>
-    <app-news></app-news>
-  </md-grid-tile>
-  <md-grid-tile>
-    <md-card></md-card>
-  </md-grid-tile>
-  <md-grid-tile>
-    <md-card></md-card>
-  </md-grid-tile>
-  <md-grid-tile>
-    <md-card></md-card>
-  </md-grid-tile>
-  <md-grid-tile>
-    <md-card></md-card>
-  </md-grid-tile>
-  <md-grid-tile>
-    <md-card></md-card>
-  </md-grid-tile>
-  <md-grid-tile>
-    <md-card></md-card>
-  </md-grid-tile>
-  <md-grid-tile>
-    <md-card></md-card>
-  </md-grid-tile>
-</md-grid-list>
+  <md-grid-list cols="4" rowHeight="fit">
+    <md-grid-tile>
+      <app-news [style.height]="'100%'"></app-news>
+    </md-grid-tile>
+    <md-grid-tile>
+      <app-bus [style.height]="'100%'"></app-bus>
+    </md-grid-tile>
+    <md-grid-tile>
+      <md-card></md-card>
+    </md-grid-tile>
+    <md-grid-tile>
+      <md-card></md-card>
+    </md-grid-tile>
+    <md-grid-tile>
+      <md-card></md-card>
+    </md-grid-tile>
+    <md-grid-tile>
+      <md-card></md-card>
+    </md-grid-tile>
+    <md-grid-tile>
+      <md-card></md-card>
+    </md-grid-tile>
+    <md-grid-tile>
+      <md-card></md-card>
+    </md-grid-tile>
+  </md-grid-list>
