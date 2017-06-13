@@ -14,7 +14,8 @@ export class NewsComponent implements OnInit {
   private source = 'TechCrunch';
   private color = 'primary';
   private value = 1;
-  private rotation = 15000; // time in milleseconds
+  private rotation = 15000; // 15s time in milleseconds
+  private refreshTime = 600000; // News refresh time 600s
   private step;
 
   constructor(private service: TechCrunchService) {
@@ -30,16 +31,21 @@ export class NewsComponent implements OnInit {
           this.articles = articles;
           this.article = articles[0];
         }
-      }).then(() => {
-      window.setInterval(() => {
-        this.article = this.articles[i];
-        i = (i + 1) % this.articles.length;
-        this.value = 0; // Reset Progress Bar
-      }, this.rotation);
-      window.setInterval(() => {
-        // Increase Progress Bar periodicaly
-        this.value = (this.value + this.step);
-      }, 100);
-    });
+      })
+      .catch((err) => {
+      // Network not available
+        console.log(err);
+      })
+      .then(() => {
+        window.setInterval(() => {
+          this.article = this.articles[i];
+          i = (i + 1) % this.articles.length;
+          this.value = 0; // Reset Progress Bar
+        }, this.rotation);
+        window.setInterval(() => {
+          // Increase Progress bar periodicaly
+          this.value = (this.value + this.step);
+        }, 100);
+      });
   }
 }
