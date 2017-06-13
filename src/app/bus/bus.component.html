@@ -1,0 +1,19 @@
+<md-card [style.width]="'100%'">
+  <md-card-content [style.width]="'100%'">
+    <md-list dense>
+      <h3 md-subheader>{{station}}</h3>
+      <md-list-item *ngFor="let schedule of schedules">
+        <img md-list-avatar src="../../assets/{{code}}genRVB.png" alt="Bus {{code}}">
+        <h4 md-line>{{schedule.destination}}</h4>
+        <p md-line>{{schedule.message.join(', ')}}</p>
+      </md-list-item>
+    </md-list>
+  </md-card-content>
+  <md-card-footer>
+    <md-progress-bar
+      [color]="color"
+      [mode]="'determinate'"
+      [value]="value">
+    </md-progress-bar>
+  </md-card-footer>
+</md-card>
